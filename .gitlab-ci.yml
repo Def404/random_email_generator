@@ -7,7 +7,7 @@ test:
   stage: test
   script:
     - echo Test
-    - dotnet test ~/RandomEmailGenerator/RandomEmailGenerator.csproj
+    - dotnet test ~/random_email_generator/RandomEmailGenerator/RandomEmailGenerator.csproj
     - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def.com 4
   artifacts:
     paths:
