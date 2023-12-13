@@ -1,0 +1,11 @@
+﻿stages:
+  - test
+    
+mvn-test:
+  stage: test
+  script:
+    - echo START
+    - docker compose start
+  artifacts: 
+    paths:
+      - target/*.jar
