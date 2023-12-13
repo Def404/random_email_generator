@@ -5,4 +5,5 @@
       context: .
       dockerfile: Dockerfile
     command:
-      - alex def def.com 3
+      alex def def.com 3
+  
