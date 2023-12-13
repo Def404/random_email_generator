@@ -1,9 +1,14 @@
+image : mcr.microsoft.com/dotnet/sdk:7.0
+
 stages:
   - test
 
-test-job:
+test:
   stage: test
-  script: 
-    - docker compose -f RandomEmailGenerator/docker-compose.yml down
-    - docker compose -f RandomEmailGenerator/docker-compose.yml build random_email_generator
-    - docker compose -f RandomEmailGenerator/docker-compose.yml up
+  script:
+    - echo Test
+    - dotnet test ~/RandomEmailGenerator/RandomEmailGenerator.csproj
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def.com 4
+  artifacts:
+    paths:
+      - test/
