@@ -1,0 +1,12 @@
+image : mcr.microsoft.com/dotnet/sdk:7.0
+
+stages:
+  - test-run
+
+test-run:
+  stage: test-run
+  script:
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def.com 4
+  artifacts:
+    paths:
+      - test/

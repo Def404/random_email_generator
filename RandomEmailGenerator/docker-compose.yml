@@ -1,0 +1,9 @@
+﻿services:
+  randomemailgenerator:
+    image: random_email_generator
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      alex def def.com 3
+  
