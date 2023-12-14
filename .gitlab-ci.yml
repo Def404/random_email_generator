@@ -16,12 +16,3 @@ test-run:
     paths:
       - test/*.jar
 
-release:
-  stage: release
-  only:
-    - dev
-  artifacts:
-    paths:
-      - publish/*.jar
-  script:
-    - dotnet publish -c Release -o ../publish ./RandomEmailGenerator/RandomEmailGenerator.csproj
