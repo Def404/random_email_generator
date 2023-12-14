@@ -2,11 +2,26 @@ image : mcr.microsoft.com/dotnet/sdk:7.0
 
 stages:
   - test-run
+  - release
 
 test-run:
   stage: test-run
   script:
-    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def.com 4
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def[dcom 4
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def.com dsf
+    - dotnet run --project ./RandomEmailGenerator/RandomEmailGenerator.csproj alex def def.com 4 fedsf
   artifacts:
     paths:
-      - test/
+      - test/*.jar
+
+release:
+  stage: release
+  only:
+    - dev
+  artifacts:
+    paths:
+      - publish/*.jar
+  script:
+    - dotnet publish -c Release -o ../publish ./RandomEmailGenerator/RandomEmailGenerator.csproj
